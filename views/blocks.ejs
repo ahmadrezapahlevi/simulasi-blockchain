@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+<h2>Daftar Blok</h2>
+<% blockchain.forEach(block => { %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <p><strong>Index:</strong> <%= block.index %></p>
+      <p><strong>Timestamp:</strong> <%= block.timestamp %></p>
+      <p><strong>Hash:</strong> <%= block.hash %></p>
+      <p><strong>Transactions:</strong></p>
+      <ul>
+        <% block.transactions.forEach(t => { %>
+          <li><%= t.sender %> ➜ <%= t.recipient %> ($<%= t.amount %>)</li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+<% }) %>
+<%- include('partials/footer') %>
